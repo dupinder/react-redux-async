@@ -3,9 +3,10 @@ import classes from './Cart.module.css';
 import CartItem from './CartItem';
 import { useSelector } from 'react-redux';
 
+
 const Cart = (props) => {
   const cartItems = useSelector((state) => state.cart.items);
-
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
   return (
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
@@ -22,6 +23,7 @@ const Cart = (props) => {
             }}
           />))}
       </ul>
+      <h2>Total Price: { totalAmount }</h2>
     </Card>
   );
 };
